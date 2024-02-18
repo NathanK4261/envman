@@ -1,9 +1,6 @@
 #!/usr/bin/bash
 # Python virtual environment manager
 
-mkdir "$HOME/envman/envs"
-clear
-
 # Check if script is being sourced
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     echo "Error: This script must be sourced rather than executed directly."
