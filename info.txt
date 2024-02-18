@@ -1,2 +1,3 @@
 1. The file "envman" should be localed in /home
+2. The bash script "envman" (located in directory "envman") can be put into /usr/bin to acces globally
 2. 1 file (envman) is also located in /usr/bin, this is impoirtant for uninstalling
