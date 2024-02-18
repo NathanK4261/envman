@@ -1,0 +1,2 @@
+1. The file "envman" should be localed in /home
+2. 1 file (envman) is also located in /usr/bin, this is impoirtant for uninstalling

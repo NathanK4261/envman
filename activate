@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+# Check if the virtual environment path is provided
+if [ $# -eq 0 ]; then
+    echo "ERROR: Please provide a valid environment name"
+    return 1
+fi
+
+# Set the path to the virtual environment
+name=$1
+
+# Check if the virtual environment exists
+if [ ! -d "$HOME/envman/envs/$name" ]; then
+    echo "Error: Virtual environment not found at $HOME/envman/envs/$name"
+    return 1
+fi
+
+# Activate the virtual environment
+source "$HOME/envman/envs/$name/bin/activate"
+
+clear
