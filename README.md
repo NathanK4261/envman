@@ -12,4 +12,4 @@
 
 * Once a copy of envman is accessible in your system path, run envman like this:
 
-* * `source envman <add arguments here>`
+    - `source envman <add arguments here>`
