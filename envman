@@ -15,7 +15,7 @@ activate() {
 }
 
 list_envs() {
-    ls -d "$homedir"/*/ | awk -F/ '{print $(NF-1)}'
+    ls -d "$homedir"/* | awk -F/ '{print $(NF-1)}'
 }
 
 # Parse arguments
