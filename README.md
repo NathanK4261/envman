@@ -13,4 +13,3 @@
 * Once a copy of envman is accessible in your system path, run envman like this:
 
     - `source envman <add arguments here>`
-    - OR: `.envmav <add arguments here>` (Make sure you add the "." before calling envman)
