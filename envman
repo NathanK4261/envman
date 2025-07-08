@@ -24,6 +24,8 @@ if [[ "$1" == "help" ]]; then
     echo "source envman activate -> activates an existing environment"
     echo "source envman create ... -> creates a new environment with given name"
     echo "source envman list -> list all existing environments"
+
+    fi
 elif [[ "$1" == "activate" ]]; then
     if [[ -n "$2" ]]; then
         activate "$2"
