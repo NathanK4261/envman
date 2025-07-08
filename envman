@@ -15,17 +15,20 @@ activate() {
 }
 
 list_envs() {
-    ls -d "$homedir"/* | awk -F/ '{print $(NF-1)}'
+    ls -d "$homedir/envman/envs/"* 2>/dev/null | awk -F/ '{print $NF}'
 }
 
 # Parse arguments
 if [[ "$1" == "help" ]]; then
-    echo "envman: python environment manager"
-    echo "source envman activate -> activates an existing environment"
-    echo "source envman create ... -> creates a new environment with given name"
-    echo "source envman list -> list all existing environments"
+    echo "envman: Python virtual environment manager"
+    echo
+    echo "Usage:"
+    echo "  source envman activate <name>   # Activate an existing environment"
+    echo "  source envman create <name>     # Create a new environment"
+    echo "  source envman scrap <name>      # Delete an existing environment"
+    echo "  source envman list              # List all existing environments"
+    echo "  source envman help              # Show this help message"
 
-    fi
 elif [[ "$1" == "activate" ]]; then
     if [[ -n "$2" ]]; then
         activate "$2"
@@ -33,6 +36,7 @@ elif [[ "$1" == "activate" ]]; then
     else
         echo "Error: Environment name is missing."
     fi
+
 elif [[ "$1" == "create" ]]; then
     if [[ -n "$2" ]]; then
         echo "Creating environment: $2"
@@ -44,19 +48,21 @@ elif [[ "$1" == "create" ]]; then
     else
         echo "Error: Environment name is missing."
     fi
+
 elif [[ "$1" == "scrap" ]]; then
     if [[ -n "$2" ]]; then
         echo "Scrapping environment: $2"
         read -p "Are you sure you want to delete: $2 -> [$homedir/envman/envs/$2] (y/n) " choice
         if [[ "$choice" == "y" ]]; then
-            sudo rm -rf "$homedir/envman/envs/$2"
+            rm -rf "$homedir/envman/envs/$2"
             clear
         fi
     else
         echo "Error: Environment name is missing."
     fi
+
 elif [[ "$1" == "list" ]]; then
     echo "--- Environments ---"
-    ls -d "$homedir/envman/envs"/* | awk -F/ '{print $(NF-1)}'
+    list_envs
     echo "--- Environments ---"
 fi
