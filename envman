@@ -14,22 +14,8 @@ activate() {
     source "$homedir/envman/activate" "$1"
 }
 
-list_envs() {
-    ls -d "$homedir/envman/envs/"* 2>/dev/null | awk -F/ '{print $NF}'
-}
-
 # Parse arguments
-if [[ "$1" == "help" ]]; then
-    echo "envman: Python virtual environment manager"
-    echo
-    echo "Usage:"
-    echo "  source envman activate <name>   # Activate an existing environment"
-    echo "  source envman create <name>     # Create a new environment"
-    echo "  source envman scrap <name>      # Delete an existing environment"
-    echo "  source envman list              # List all existing environments"
-    echo "  source envman help              # Show this help message"
-
-elif [[ "$1" == "activate" ]]; then
+if [[ "$1" == "activate" ]]; then
     if [[ -n "$2" ]]; then
         activate "$2"
         clear
@@ -63,6 +49,6 @@ elif [[ "$1" == "scrap" ]]; then
 
 elif [[ "$1" == "list" ]]; then
     echo "--- Environments ---"
-    list_envs
+    ls -d "$homedir/envman/envs"/*/ | awk -F/ '{print $(NF-1)}'
     echo "--- Environments ---"
 fi
