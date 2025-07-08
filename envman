@@ -50,6 +50,6 @@ elif [[ "$1" == "scrap" ]]; then
     fi
 elif [[ "$1" == "list" ]]; then
     echo "--- Environments ---"
-    ls -d "$homedir/envman/envs"/*/ | awk -F/ '{print $(NF-1)}'
+    ls -d "$homedir/envman/envs"/* | awk -F/ '{print $(NF-1)}'
     echo "--- Environments ---"
 fi
