@@ -19,7 +19,7 @@ list_envs() {
 }
 
 # Parse arguments
-if [[ "$1" == "--help" || "$1" == "-h" ]]; then
+if [[ "$1" == "help" ]]; then
     echo "envman: python environment manager"
     echo "source envman activate -> activates an existing environment"
     echo "source envman create ... -> creates a new environment with given name"
